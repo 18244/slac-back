@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +18,9 @@ import br.com.slac.model.ResponseModel;
 import br.com.slac.model.UsuarioModel;
 import br.com.slac.repository.UsuarioRepository;
 
+@CrossOrigin
 @RestController
-@RequestMapping("/service")
+@RequestMapping("/api")
 public class UsuarioService {
 	
 	@Autowired

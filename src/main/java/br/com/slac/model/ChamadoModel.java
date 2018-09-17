@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="chamados") 
+@Table( name="chamados" ) 
 @Entity
 public class ChamadoModel {
 
@@ -24,39 +24,42 @@ public class ChamadoModel {
 	@Column( name="descricao" )
 	private String descricao;
 
-	@Column(name="local")
+	@Column( name="local" )
 	private String local;
 
-	@Column(name="prioridade")
+	@Column( name="prioridade" )
 	private String prioridade;
 
-	@Column(name="data")
+	@Column( name="data" )
 	private Instant data;
 
-	@Column(name="fotos")
+	@Column( name="fotos" )
 	private byte[] foto;
+	
+	@Column( name="status" )
+	private String status;
 
-	public Integer getId() {
+	public Integer getId( ) {
 		return this.id;
 	}
 
-	public void setId(Integer id) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getTipo() {
+	public String getTipo( ) {
 		return this.tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo( String tipo ) {
 		this.tipo = tipo;
 	}
 	
-	public String getDescricao() {
+	public String getDescricao( ) {
 		return this.descricao;
 	}
 	
-	public void setDescricao( String descricao) {
+	public void setDescricao( String descricao ) {
 		this.descricao = descricao;
 	}
 	
@@ -91,7 +94,14 @@ public class ChamadoModel {
 	public void setFoto( byte[] foto ) {
 		 this.foto = foto;
 	}
-
+	
+	public String getStatus( ) {
+		return this.status;
+	}
+	
+	public void setStatus( String status ) {
+		this.status = status;
+	}
 }
 
 

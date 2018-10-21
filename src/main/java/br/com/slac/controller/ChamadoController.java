@@ -3,7 +3,6 @@ package br.com.slac.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,8 +27,7 @@ public class ChamadoController {
 	 * @param chamado
 	 * @return
 	 */
-	@RequestMapping( value="/chamado", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,
-																	produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/chamado", method = RequestMethod.POST )
 	public @ResponseBody ResponseModel salvar( @RequestBody ChamadoModel chamado )
 	{
 		return chamadoService.salvarChamado( chamado );			
@@ -40,7 +38,7 @@ public class ChamadoController {
 	 * @param chamado
 	 * @return
 	 */
-	@RequestMapping( value="/chamado", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/chamado", method = RequestMethod.PUT )
 	public @ResponseBody ResponseModel atualizar( @RequestBody ChamadoModel chamado )
 	{
 		return chamadoService.atualizarChamado( chamado );
@@ -50,7 +48,7 @@ public class ChamadoController {
 	 * CONSULTAR TODOS OS CHAMADOS
 	 * @return
 	 */
-	@RequestMapping( value="/chamado", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/chamado", method = RequestMethod.GET )
 	public @ResponseBody List<ChamadoModel> consultar( )
 	{
 		return chamadoService.consultarChamados( );
@@ -61,7 +59,7 @@ public class ChamadoController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping( value="/chamado/{id}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/chamado/{id}", method = RequestMethod.GET )
 	public @ResponseBody ChamadoModel buscar( @PathVariable( "id" ) Integer id )
 	{
 		return chamadoService.buscaChamadoPeloId( id );
@@ -72,7 +70,7 @@ public class ChamadoController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping( value="/chamado/{id}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/chamado/{id}", method = RequestMethod.DELETE )
 	public @ResponseBody ResponseModel excluir( @PathVariable( "id" ) Integer id )
 	{
 		return chamadoService.excluirChamadoPeloId( id );

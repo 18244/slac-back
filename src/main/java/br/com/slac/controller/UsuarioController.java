@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,8 +29,7 @@ public class UsuarioController {
 	 * @param usuario
 	 * @return
 	 */
-	@RequestMapping( value="/usuario", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,
-																	produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/usuario", method = RequestMethod.POST )
 	public @ResponseBody ResponseModel salvar( @RequestBody UsuarioModel usuario )
 	{
 		return usuarioService.salvarUsuario( usuario );
@@ -40,10 +38,9 @@ public class UsuarioController {
 	/**
 	 * EFETUA LOGIN DE UM USUÁRIO
 	 * @param usuario
-	 * @return
+	 * @return Optional<UsuarioModel>
 	 */
-	@RequestMapping( value="/usuario/login", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,
-																	produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/usuario/login", method = RequestMethod.POST )
 	public @ResponseBody Optional<UsuarioModel> efetuaLogin( @RequestBody UsuarioModel usuario )
 	{
 		return usuarioService.efetuaLogin( usuario.getLogin( ), usuario.getSenha( ) );
@@ -52,9 +49,9 @@ public class UsuarioController {
 	/**
 	 * ATUALIZAR O REGISTRO DE UM USUÁRIO
 	 * @param usuario
-	 * @return
+	 * @return ResponseModel
 	 */
-	@RequestMapping( value="/usuario", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/usuario", method = RequestMethod.PUT )
 	public @ResponseBody ResponseModel atualizar( @RequestBody UsuarioModel usuario )
 	{
 		return usuarioService.atualizarUsuario( usuario ); 
@@ -62,9 +59,9 @@ public class UsuarioController {
  
 	/**
 	 * CONSULTAR TODOS OS USUÁRIOS
-	 * @return
+	 * @return List<UsuarioModel>
 	 */
-	@RequestMapping( value="/usuario", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/usuario", method = RequestMethod.GET )
 	public @ResponseBody List<UsuarioModel> consultar( )
 	{
 		return usuarioService.consultarUsuarios( );
@@ -73,9 +70,9 @@ public class UsuarioController {
 	/**
 	 * BUSCAR UM USUÁRIO PELO ID
 	 * @param id
-	 * @return
+	 * @return UsuarioModel
 	 */
-	@RequestMapping( value="/usuario/{id}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/usuario/{id}", method = RequestMethod.GET )
 	public @ResponseBody UsuarioModel buscar( @PathVariable( "id" ) Integer id )
 	{
 		return usuarioService.buscaUsuarioPeloId( id );
@@ -84,9 +81,9 @@ public class UsuarioController {
 	/***
 	 * EXCLUIR UM USUÁRIO PELO ID
 	 * @param id
-	 * @return
+	 * @return ResponseModel
 	 */
-	@RequestMapping( value="/usuario/{id}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	@RequestMapping( value="/usuario/{id}", method = RequestMethod.DELETE )
 	public @ResponseBody ResponseModel excluir( @PathVariable( "id" ) Integer id )
 	{
 		return usuarioService.excluiUsuarioPeloId( id );

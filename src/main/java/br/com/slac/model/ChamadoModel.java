@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class ChamadoModel {
 
 	@Id
-	@GeneratedValue( strategy = GenerationType.AUTO )
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	@Column( name="id" )
 	private Integer id;
 
@@ -38,6 +38,17 @@ public class ChamadoModel {
 	
 	@Column( name="status" )
 	private String status;
+	
+	@Column(name = "usuario_id")
+	private Integer idUsuario;
+
+	public Integer getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 
 	public Integer getId( ) {
 		return this.id;

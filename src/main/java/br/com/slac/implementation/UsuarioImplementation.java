@@ -1,6 +1,7 @@
 package br.com.slac.implementation;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class UsuarioImplementation implements UsuarioService {
 	public ResponseModel salvarUsuario( UsuarioModel usuario ) {
 		try {
 			 
-			this.usuarioRepository.save( usuario );
+			usuarioRepository.save( usuario );
  
 			return new ResponseModel( 1,"Usuário salvo com sucesso!" );
  
@@ -34,7 +35,7 @@ public class UsuarioImplementation implements UsuarioService {
 	public ResponseModel atualizarUsuario( UsuarioModel usuario ) {
 		try {
 			 
-			this.usuarioRepository.save( usuario );		
+			usuarioRepository.save( usuario );		
  
 			return new ResponseModel( 1,"Usuário atualizado com sucesso!" );
  
@@ -47,13 +48,13 @@ public class UsuarioImplementation implements UsuarioService {
 	@Override
 	public List<UsuarioModel> consultarUsuarios( )
 	{
-		return this.usuarioRepository.findAll( );
+		return usuarioRepository.findAll( );
 	}
 
 	@Override
 	public UsuarioModel buscaUsuarioPeloId( Integer id )
 	{
-		return this.usuarioRepository.findById( id );
+		return usuarioRepository.findById( id );
 	}
 
 	@Override
@@ -70,5 +71,11 @@ public class UsuarioImplementation implements UsuarioService {
 		}catch( Exception e ) {
 			return new ResponseModel( 0, e.getMessage( ) );
 		}
+	}
+
+	@Override
+	public Optional<UsuarioModel> efetuaLogin( String login, String senha ) 
+	{
+		return usuarioRepository.efetuaLogin( login.trim( ), senha.trim( ) );
 	}
 }

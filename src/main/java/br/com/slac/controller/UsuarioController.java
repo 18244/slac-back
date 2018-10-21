@@ -1,6 +1,7 @@
 package br.com.slac.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -34,6 +35,18 @@ public class UsuarioController {
 	public @ResponseBody ResponseModel salvar( @RequestBody UsuarioModel usuario )
 	{
 		return usuarioService.salvarUsuario( usuario );
+	}
+	
+	/**
+	 * EFETUA LOGIN DE UM USUÁRIO
+	 * @param usuario
+	 * @return
+	 */
+	@RequestMapping( value="/usuario/login", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,
+																	produces=MediaType.APPLICATION_JSON_UTF8_VALUE )
+	public @ResponseBody Optional<UsuarioModel> efetuaLogin( @RequestBody UsuarioModel usuario )
+	{
+		return usuarioService.efetuaLogin( usuario.getLogin( ), usuario.getSenha( ) );
 	}
  
 	/**

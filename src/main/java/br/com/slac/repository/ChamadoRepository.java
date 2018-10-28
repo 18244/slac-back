@@ -15,6 +15,4 @@ public interface ChamadoRepository extends Repository<ChamadoModel, Integer> {
 	 List<ChamadoModel> findAll( );
 	 
 	 ChamadoModel findById(Integer id);
-
-
 }

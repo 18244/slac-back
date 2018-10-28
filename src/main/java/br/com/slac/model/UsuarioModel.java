@@ -7,54 +7,86 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="usuario") 
+@Table( name="usuario" ) 
 @Entity
 public class UsuarioModel {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
+	@Column( name="id" )
 	private Integer id;
 	
-	@Column(name="login")
+	@Column( name="login" )
 	private String login;
 	
-	@Column(name="ativo", columnDefinition ="BIT")
+	@Column( name="senha" )
+	private String senha;
+	
+	@Column( name ="nome" )
+	private String nome;
+	
+	@Column( name="ativo", columnDefinition ="BIT" )
 	private boolean ativo;
 	
-	@Column(name="senha")
-	private String senha;
+	@Column( name="tipo" )
+	private String tipo;
+	
+	@Column( name ="administrador", columnDefinition = "BIT" )
+	private boolean administrador;
 
+	public String getNome() {
+		return nome;
+	}
 
-	public Integer getId() {
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public boolean isAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
+	}
+
+	public Integer getId( ) {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId( Integer id ) {
 		this.id = id;
 	}
 
-	public String getLogin() {
+	public String getLogin( ) {
 		return login;
 	}
 
-	public void setLogin(String login) {
+	public void setLogin( String login ) {
 		this.login = login;
 	}
 
-	public boolean isAtivo() {
+	public boolean isAtivo( ) {
 		return ativo;
 	}
 
-	public void setAtivo(boolean ativo) {
+	public void setAtivo( boolean ativo ) {
 		this.ativo = ativo;
 	}
 	
-	public String getSenha() {
+	public String getSenha( ) {
 		return senha;
 	}
 	
-	public void setSenha(String senha) {
+	public void setSenha( String senha ) {
 		this.senha = senha;
 	}
 

@@ -22,7 +22,29 @@ public class MenuController {
 	private MenuService menuService;
 	
 	/**
-	 * BUSCAR TODOS OS MENUS QUE UM USÁRIO TEM ACESSO
+	 * BUSCAR TODOS OS MENUS QUE UM ADMINISTRADOR TEM ACESSO
+	 * @param 
+	 * @return List MenuModel
+	 */
+	@RequestMapping( value="/menu/administrador/{administrador}", method = RequestMethod.GET )
+	public @ResponseBody List<MenuModel> buscarMenusAdministrador( @PathVariable( "administrador" ) boolean administrador )
+	{
+		return menuService.buscaMenusAdministrador( administrador );
+	}
+	
+	/**
+	 * BUSCAR TODOS OS MENUS QUE UM USUÁRIO TEM ACESSO
+	 * @param 
+	 * @return List MenuModel
+	 */
+	@RequestMapping( value="/menu/{tipo}", method = RequestMethod.GET )
+	public @ResponseBody List<MenuModel> buscarMenusUsuario( @PathVariable( "tipo" ) String tipo )
+	{
+		return menuService.buscarMenusUsuario( tipo );
+	}
+	
+	/**
+	 * BUSCAR TODOS OS MENUS
 	 * @param 
 	 * @return List MenuModel
 	 */
@@ -37,10 +59,9 @@ public class MenuController {
 	 * @param id
 	 * @return MenuModel
 	 */
-	@RequestMapping( value="/menu/{id}", method = RequestMethod.GET )
+	@RequestMapping( value="/menu/id/{id}", method = RequestMethod.GET )
 	public @ResponseBody MenuModel buscar( @PathVariable( "id" ) Integer id )
 	{
 		return menuService.buscaMenuPeloId(id);
 	}
-
 }

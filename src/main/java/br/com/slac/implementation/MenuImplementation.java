@@ -16,9 +16,22 @@ public class MenuImplementation implements MenuService {
 	private MenuRepository menuRepository;
 
 	@Override
-	public List<MenuModel> buscaMenus() {
+	public List<MenuModel> buscaMenusAdministrador( boolean administrador ) {
+		return menuRepository.buscaMenusAdministrador( administrador );
+	}
+	
+	@Override
+	public List<MenuModel> buscarMenusUsuario( String tipo ) {
+		if( tipo.equals( "FUNCIONARIO" ) )
+			return menuRepository.buscaMenusFuncionario( );
 		
-		return menuRepository.findAll();
+		return menuRepository.buscaMenusUsuarioComum( );
+	}
+	
+	@Override
+	public List<MenuModel> buscaMenus( ) {
+		
+		return menuRepository.findAll( );
 	}
 
 	@Override

@@ -16,14 +16,26 @@ public class UsuarioModel {
 	@Column( name="id" )
 	private Integer id;
 	
+	@Column( name ="nome" )
+	private String nome;
+	
 	@Column( name="login" )
 	private String login;
 	
+	@Column( name="email" )
+	private String email;
+	
+	public String getEmail( ) {
+		return email;
+	}
+
+	public void setEmail( String email ) {
+		this.email = email;
+	}
+
 	@Column( name="senha" )
 	private String senha;
 	
-	@Column( name ="nome" )
-	private String nome;
 	
 	@Column( name="ativo", columnDefinition ="BIT" )
 	private boolean ativo;

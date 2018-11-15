@@ -51,6 +51,12 @@ public class ChamadoImplementation  implements ChamadoService{
 	{
 		return chamadoRepository.findAll( );
 	}
+	
+	@Override
+	public List<ChamadoModel> consultarChamadosUsuario( Integer usuario_id )
+	{		
+		return chamadoRepository.consultaChamadosUsuario( usuario_id );
+	}
 
 	@Override
 	public ChamadoModel buscaChamadoPeloId( Integer id ) 

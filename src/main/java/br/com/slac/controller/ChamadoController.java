@@ -53,13 +53,23 @@ public class ChamadoController {
 	{
 		return chamadoService.consultarChamados( );
 	}
+	
+	/**
+	 * CONSULTAR TODOS OS CHAMADOS DE UM USUÁRIO
+	 * @return
+	 */
+	@RequestMapping( value="/chamado/{usuario_id}", method = RequestMethod.GET )
+	public @ResponseBody List<ChamadoModel> consultaChamadosUsuario( @PathVariable("usuario_id")  Integer usuario_id )
+	{
+		return chamadoService.consultarChamadosUsuario( usuario_id );
+	}
  
 	/**
 	 * BUSCAR UM CHAMADO PELO ID
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping( value="/chamado/{id}", method = RequestMethod.GET )
+	@RequestMapping( value="/chamado/id/{id}", method = RequestMethod.GET )
 	public @ResponseBody ChamadoModel buscar( @PathVariable( "id" ) Integer id )
 	{
 		return chamadoService.buscaChamadoPeloId( id );
@@ -75,7 +85,4 @@ public class ChamadoController {
 	{
 		return chamadoService.excluirChamadoPeloId( id );
 	}
-
-
-
 }

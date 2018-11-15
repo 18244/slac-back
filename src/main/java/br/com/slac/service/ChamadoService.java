@@ -11,7 +11,9 @@ public interface ChamadoService {
 	
 	public ResponseModel atualizarChamado( ChamadoModel chamado );
 	
-	public List<ChamadoModel> consultarChamados( );	
+	public List<ChamadoModel> consultarChamados( );
+	
+	public List<ChamadoModel> consultarChamadosUsuario( Integer usuario_id );	
 	
 	public ChamadoModel buscaChamadoPeloId( Integer id );
 	

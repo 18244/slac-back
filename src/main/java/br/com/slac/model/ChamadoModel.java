@@ -41,6 +41,9 @@ public class ChamadoModel {
 	
 	@Column(name = "usuario_id")
 	private Integer idUsuario;
+	
+	@Column(name = "usuario_matricula")
+	private Integer matriculaUsuario;
 
 	public Integer getIdUsuario() {
 		return idUsuario;
@@ -112,6 +115,14 @@ public class ChamadoModel {
 	
 	public void setStatus( String status ) {
 		this.status = status;
+	}
+	
+	public Integer getMatriculaUsuario() {
+		return matriculaUsuario;
+	}
+
+	public void setMatriculaUsuario(Integer matriculaUsuario) {
+		this.matriculaUsuario = matriculaUsuario;
 	}
 }
 

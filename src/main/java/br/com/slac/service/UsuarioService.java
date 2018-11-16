@@ -12,6 +12,8 @@ public interface UsuarioService {
 	public ResponseModel atualizarUsuario( UsuarioModel usuario );
 	
 	public List<UsuarioModel> consultarUsuarios( );
+
+	public List<UsuarioModel> consultarFuncionarios( String tipo );
 	
 	public UsuarioModel buscaUsuarioPeloId( Integer id);
 	

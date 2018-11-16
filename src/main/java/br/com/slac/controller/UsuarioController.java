@@ -66,6 +66,15 @@ public class UsuarioController {
 	{
 		return usuarioService.consultarUsuarios( );
 	}
+	/**
+	 * CONSULTAR TODOS OS USUÁRIOS QUE SÃO FUNCIONÁRIOS
+	 * @return List<UsuarioModel>
+	 */
+	@RequestMapping( value="/usuario/funcionario/{tipo}", method = RequestMethod.GET )
+	public @ResponseBody List<UsuarioModel> consultarFuncionarios(  @PathVariable( "tipo" ) String tipo )
+	{
+		return usuarioService.consultarFuncionarios( tipo );
+	}
  
 	/**
 	 * BUSCAR UM USUÁRIO PELO ID

@@ -78,4 +78,10 @@ public class UsuarioImplementation implements UsuarioService {
 	{
 		return usuarioRepository.efetuaLogin( login.trim( ), senha.trim( ) );
 	}
+
+	@Override
+	public List<UsuarioModel> consultarFuncionarios( String tipo ) 
+	{
+		return usuarioRepository.consultaFuncionarios( tipo );
+	}
 }

@@ -16,6 +16,9 @@ public class UsuarioModel {
 	@Column( name="id" )
 	private Integer id;
 	
+	@Column( name="matricula" )
+	private Integer matricula;
+
 	@Column( name ="nome" )
 	private String nome;
 	
@@ -24,18 +27,9 @@ public class UsuarioModel {
 	
 	@Column( name="email" )
 	private String email;
-	
-	public String getEmail( ) {
-		return email;
-	}
-
-	public void setEmail( String email ) {
-		this.email = email;
-	}
 
 	@Column( name="senha" )
 	private String senha;
-	
 	
 	@Column( name="ativo", columnDefinition ="BIT" )
 	private boolean ativo;
@@ -45,6 +39,22 @@ public class UsuarioModel {
 	
 	@Column( name ="administrador", columnDefinition = "BIT" )
 	private boolean administrador;
+	
+	public Integer getId( ) {
+		return id;
+	}
+
+	public void setId( Integer id ) {
+		this.id = id;
+	}
+	
+	public Integer getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(Integer matricula) {
+		this.matricula = matricula;
+	}
 
 	public String getNome() {
 		return nome;
@@ -70,14 +80,6 @@ public class UsuarioModel {
 		this.administrador = administrador;
 	}
 
-	public Integer getId( ) {
-		return id;
-	}
-
-	public void setId( Integer id ) {
-		this.id = id;
-	}
-
 	public String getLogin( ) {
 		return login;
 	}
@@ -101,5 +103,12 @@ public class UsuarioModel {
 	public void setSenha( String senha ) {
 		this.senha = senha;
 	}
+	
+	public String getEmail( ) {
+		return email;
+	}
 
+	public void setEmail( String email ) {
+		this.email = email;
+	}
 }

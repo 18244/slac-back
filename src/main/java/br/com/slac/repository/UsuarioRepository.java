@@ -11,15 +11,18 @@ import br.com.slac.model.UsuarioModel;
 
 public interface UsuarioRepository extends Repository<UsuarioModel, Integer> {
 	
-	 void save(UsuarioModel usuario);
+	 void save( UsuarioModel usuario );
 
-	 void delete(UsuarioModel usuario);
+	 void delete( UsuarioModel usuario );
 	 
-	 List<UsuarioModel> findAll();
+	 List<UsuarioModel> findAll( );
+
+	 @Query( value = "SELECT * FROM usuario u WHERE u.tipo = :tipo AND u.matricula IS NOT NULL", nativeQuery = true ) 
+	 List<UsuarioModel> consultaFuncionarios(  @Param( "tipo" ) String tipo );
 	 
-	 UsuarioModel findById(Integer id);
+	 UsuarioModel findById( Integer id );
 	 
 	 @Query( value = "SELECT * FROM usuario u WHERE u.login = :login AND u.senha = :senha", nativeQuery = true ) 
-	 Optional<UsuarioModel> efetuaLogin(@Param("login") String login, @Param("senha") String senha);
+	 Optional<UsuarioModel> efetuaLogin( @Param( "login" ) String login, @Param( "senha" ) String senha );
 
 }

@@ -19,6 +19,9 @@ public interface UsuarioRepository extends Repository<UsuarioModel, Integer> {
 
 	 @Query( value = "SELECT * FROM usuario u WHERE u.tipo = :tipo AND u.matricula IS NOT NULL", nativeQuery = true ) 
 	 List<UsuarioModel> consultaFuncionarios(  @Param( "tipo" ) String tipo );
+
+	 @Query( value = "SELECT * FROM usuario u WHERE u.matricula = :matricula", nativeQuery = true ) 
+	 UsuarioModel consultaResponsavel(  @Param( "matricula" ) Integer matricula );
 	 
 	 UsuarioModel findById( Integer id );
 	 

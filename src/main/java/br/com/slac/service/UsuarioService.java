@@ -15,7 +15,9 @@ public interface UsuarioService {
 
 	public List<UsuarioModel> consultarFuncionarios( String tipo );
 	
-	public UsuarioModel buscaUsuarioPeloId( Integer id);
+	public UsuarioModel buscaUsuarioPeloId( Integer id );
+
+	public UsuarioModel consultarResponsavel( Integer matricula );
 	
 	public ResponseModel excluiUsuarioPeloId( Integer id);
 

@@ -84,4 +84,10 @@ public class UsuarioImplementation implements UsuarioService {
 	{
 		return usuarioRepository.consultaFuncionarios( tipo );
 	}
+
+	@Override
+	public UsuarioModel consultarResponsavel( Integer matricula ) 
+	{
+		return usuarioRepository.consultaResponsavel( matricula );
+	}
 }

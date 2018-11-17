@@ -75,6 +75,16 @@ public class UsuarioController {
 	{
 		return usuarioService.consultarFuncionarios( tipo );
 	}
+	
+	/**
+	 * CONSULTAR O USUÁRIO QUE É RESPONSÁVEL POR UM CHAMADO
+	 * @return List<UsuarioModel>
+	 */
+	@RequestMapping( value="/usuario/responsavel/{matricula}", method = RequestMethod.GET )
+	public @ResponseBody UsuarioModel consultarResponsavel(  @PathVariable( "matricula" ) Integer matricula )
+	{
+		return usuarioService.consultarResponsavel( matricula );
+	}
  
 	/**
 	 * BUSCAR UM USUÁRIO PELO ID

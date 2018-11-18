@@ -19,5 +19,5 @@ public interface ChamadoRepository extends Repository<ChamadoModel, Integer> {
 	 @Query( value = "SELECT * FROM chamados c WHERE c.usuario_id = :usuario_id", nativeQuery = true )
 	 List<ChamadoModel> consultaChamadosUsuario( @Param( "usuario_id" ) Integer usuario_id );
 	 
-	 ChamadoModel findById(Integer id);
+	 ChamadoModel findById( Integer id );
 }

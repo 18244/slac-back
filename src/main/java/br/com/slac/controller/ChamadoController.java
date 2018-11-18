@@ -22,6 +22,7 @@ public class ChamadoController {
 	
 	@Autowired
 	private ChamadoService chamadoService;
+	
 	/**
 	 * SALVAR UM NOVO CHAMADO
 	 * @param chamado
@@ -32,7 +33,7 @@ public class ChamadoController {
 	{
 		return chamadoService.salvarChamado( chamado );			
 	}
- 
+	
 	/**
 	 * ATUALIZAR O REGISTRO DE UM CHAMADO
 	 * @param chamado

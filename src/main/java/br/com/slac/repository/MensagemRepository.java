@@ -19,6 +19,6 @@ public interface MensagemRepository extends Repository<MensagemModel, Integer> {
 	@Query( value = "SELECT * FROM mensagem m WHERE m.usuario_id = :usuario_id", nativeQuery = true )
 	List<MensagemModel> consultaMensagensUsuario(@Param("usuario_id") Integer usuario_id );
 
-	@Query( value = "SELECT * FROM mensagem m WHERE m.responsavel_id = :responsavel_id", nativeQuery = true )
+	@Query( value = "SELECT * FROM mensagem m WHERE m.responsavel_id = :responsavel_id ORDER BY data DESC", nativeQuery = true )
 	List<MensagemModel> consultaMensagensResponsavel(@Param("responsavel_id") Integer responsavel_id );
 }

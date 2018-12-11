@@ -24,7 +24,7 @@ public interface MenuRepository extends Repository<MenuModel, Integer> {
 	@Query( value = "SELECT * FROM menu m WHERE m.id IN (4, 5, 6, 7, 11)", nativeQuery = true ) 
 	List<MenuModel> buscaMenusFuncionario( );
 	
-	@Query( value = "SELECT * FROM menu m WHERE m.id IN (4, 5, 6, 8, 9, 10, 11)", nativeQuery = true ) 
+	@Query( value = "SELECT * FROM menu m WHERE m.id IN (4, 5, 6, 10, 11)", nativeQuery = true ) 
 	List<MenuModel> buscaMenusUsuarioComum( );
 
 }
